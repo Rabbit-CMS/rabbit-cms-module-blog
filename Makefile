@@ -17,5 +17,9 @@ phpcs:
 phpcbf:
 	docker-compose run app ./vendor/bin/phpcbf -v
 
+#phpinsight
+phpinsight:
+	docker-compose run app ./vendor/bin/phpinsights -v
+
 fix-permission:
 	docker-compose run app chown -R 1000:1000 .
