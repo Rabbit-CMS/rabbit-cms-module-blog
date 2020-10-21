@@ -16,6 +16,7 @@
     "require": {
     },
     "require-dev": {
+        "overtrue/phplint": "^2.1",
         "phpunit/phpunit": "^9.4"
     },
     "autoload": {

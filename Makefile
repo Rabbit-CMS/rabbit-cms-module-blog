@@ -7,6 +7,9 @@ update:
 exec:
 	docker-compose run app bash
 
+phplint:
+	docker-compose run app ./vendor/bin/phplint -v
+
 test:
 	docker-compose run app ./vendor/bin/phpunit --colors --bootstrap tests/bootstrap.php tests/
 
