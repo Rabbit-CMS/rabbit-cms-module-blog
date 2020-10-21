@@ -6,3 +6,5 @@ services:
     working_dir: /app
     volumes:
     - .:/app
+    - ~/.ssh:/root/.ssh
+    - ~/.composer:/root/.composer

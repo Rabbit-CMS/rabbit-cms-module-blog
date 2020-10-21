@@ -1,0 +1,28 @@
+{
+    "name": "paulmixxx/blog",
+    "description": "Blog with DDD implementation.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paul",
+            "email": "paulmix.promo@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paulmixxx\\Blog\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}
