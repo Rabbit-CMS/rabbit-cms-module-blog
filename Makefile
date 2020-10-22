@@ -1,4 +1,4 @@
-check: phplint phpcs phpinsight psalm test
+check: phplint phpcs phpinsight psalm phpstan test
 up:
 	docker-compose up -d
 down:
@@ -12,22 +12,22 @@ exec:
 test:
 	docker-compose exec app ./vendor/bin/phpunit --colors --bootstrap tests/bootstrap.php tests/
 
-#phplint
 phplint:
 	docker-compose exec app ./vendor/bin/phplint -v
 
-#codesniffer
 phpcs:
 	docker-compose exec app ./vendor/bin/phpcs -v
 phpcbf:
 	docker-compose exec app ./vendor/bin/phpcbf -v
 
-#phpinsight
 phpinsight:
 	docker-compose exec app ./vendor/bin/phpinsights -v
 
 psalm:
 	docker-compose exec app ./vendor/bin/psalm
+
+phpstan:
+	docker-compose exec app ./vendor/bin/phpstan analyse
 
 fix-permission:
 	docker-compose exec app chown -R 1000:1000 .
