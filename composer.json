@@ -16,6 +16,7 @@
     "require": {
     },
     "require-dev": {
+        "infection/infection": "^0.18.2",
         "nunomaduro/phpinsights": "^1.14",
         "overtrue/phplint": "^2.1",
         "phpstan/phpstan": "^0.12.50",

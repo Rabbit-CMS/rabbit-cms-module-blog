@@ -5,5 +5,10 @@ RUN apt update && apt install -y \
     curl \
     wget \
     zip unzip libzip-dev
-RUN docker-php-ext-install zip
+RUN docker-php-ext-install \
+        zip \
+    && pecl install \
+        xdebug \
+    && docker-php-ext-enable \
+        xdebug
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --filename=composer --install-dir=/bin

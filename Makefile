@@ -1,16 +1,22 @@
-check: phplint phpcs phpinsight psalm phpstan test
+install: down up composer-install fix-permission
+check: phplint phpcs phpinsight psalm phpstan test fix-permission
+
 up:
 	docker-compose up -d
 down:
 	docker-compose down
-install:
-	docker-compose exec app composer i --no-interaction
-update:
-	docker-compose exec app composer u --no-interaction
 exec:
 	docker-compose exec app bash
+fix-permission:
+	docker-compose exec app chown -R 1000:1000 .
+
+composer-install:
+	docker-compose exec app composer i --no-interaction
+composer-update:
+	docker-compose exec app composer u --no-interaction
+
 test:
-	docker-compose exec app ./vendor/bin/phpunit --colors --bootstrap tests/bootstrap.php tests/
+	docker-compose exec app ./vendor/bin/phpunit
 
 phplint:
 	docker-compose exec app ./vendor/bin/phplint -v
@@ -28,6 +34,3 @@ psalm:
 
 phpstan:
 	docker-compose exec app ./vendor/bin/phpstan analyse
-
-fix-permission:
-	docker-compose exec app chown -R 1000:1000 .
