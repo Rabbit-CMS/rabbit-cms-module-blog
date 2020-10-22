@@ -21,7 +21,7 @@
     <coverage cacheDirectory="var/.phpunit.cache/code-coverage"
               processUncoveredFiles="true">
         <report>
-            <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>
+            <html outputDirectory="var/html-coverage" lowUpperBound="50" highLowerBound="90"/>
         </report>
         <include>
             <directory suffix=".php">src</directory>
