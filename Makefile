@@ -1,25 +1,33 @@
+check: phplint phpcs phpinsight psalm test
+up:
+	docker-compose up -d
+down:
+	docker-compose down
 install:
-	docker-compose run app composer i --no-interaction
+	docker-compose exec app composer i --no-interaction
 update:
-	docker-compose run app composer u --no-interaction
+	docker-compose exec app composer u --no-interaction
 exec:
-	docker-compose run app bash
+	docker-compose exec app bash
 test:
-	docker-compose run app ./vendor/bin/phpunit --colors --bootstrap tests/bootstrap.php tests/
+	docker-compose exec app ./vendor/bin/phpunit --colors --bootstrap tests/bootstrap.php tests/
 
 #phplint
 phplint:
-	docker-compose run app ./vendor/bin/phplint -v
+	docker-compose exec app ./vendor/bin/phplint -v
 
 #codesniffer
 phpcs:
-	docker-compose run app ./vendor/bin/phpcs -v
+	docker-compose exec app ./vendor/bin/phpcs -v
 phpcbf:
-	docker-compose run app ./vendor/bin/phpcbf -v
+	docker-compose exec app ./vendor/bin/phpcbf -v
 
 #phpinsight
 phpinsight:
-	docker-compose run app ./vendor/bin/phpinsights -v
+	docker-compose exec app ./vendor/bin/phpinsights -v
+
+psalm:
+	docker-compose exec app ./vendor/bin/psalm
 
 fix-permission:
-	docker-compose run app chown -R 1000:1000 .
+	docker-compose exec app chown -R 1000:1000 .
