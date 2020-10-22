@@ -38,3 +38,6 @@ phpstan:
 
 phpmd:
 	docker-compose exec app ./vendor/bin/phpmd src/ ansi phpmd.xml
+
+phpmetrics:
+	docker-compose exec app ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
