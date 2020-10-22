@@ -1,5 +1,6 @@
 install: down up composer-install fix-permission
-check: phplint phpcs phpinsight psalm phpstan test fix-permission
+check: phplint phpcs phpinsight psalm phpstan phpmd test fix-permission
+restart: down up
 
 up:
 	docker-compose up -d
@@ -34,3 +35,6 @@ psalm:
 
 phpstan:
 	docker-compose exec app ./vendor/bin/phpstan analyse
+
+phpmd:
+	docker-compose exec app ./vendor/bin/phpmd src/ ansi phpmd.xml
