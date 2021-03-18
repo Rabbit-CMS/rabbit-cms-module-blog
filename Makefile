@@ -7,37 +7,37 @@ up:
 down:
 	docker-compose down
 exec:
-	docker-compose exec app bash
+	docker-compose run --rm app bash
 fix-permission:
-	docker-compose exec app chown -R 1000:1000 .
+	docker-compose run --rm app chown -R 1000:1000 .
 
 composer-install:
-	docker-compose exec app composer i --no-interaction
+	docker-compose run --rm app composer i --no-interaction
 composer-update:
-	docker-compose exec app composer u --no-interaction
+	docker-compose run --rm app composer u --no-interaction
 
 test:
-	docker-compose exec app ./vendor/bin/phpunit
+	docker-compose run --rm app ./vendor/bin/phpunit -v
 
 phplint:
-	docker-compose exec app ./vendor/bin/phplint -v
+	docker-compose run --rm app ./vendor/bin/phplint -v
 
 phpcs:
-	docker-compose exec app ./vendor/bin/phpcs -v
+	docker-compose run --rm app ./vendor/bin/phpcs -v
 phpcbf:
-	docker-compose exec app ./vendor/bin/phpcbf -v
+	docker-compose run --rm app ./vendor/bin/phpcbf -v
 
 phpinsight:
-	docker-compose exec app ./vendor/bin/phpinsights -v
+	docker-compose run --rm app ./vendor/bin/phpinsights -v
 
 psalm:
-	docker-compose exec app ./vendor/bin/psalm
+	docker-compose run --rm app ./vendor/bin/psalm
 
 phpstan:
-	docker-compose exec app ./vendor/bin/phpstan analyse
+	docker-compose run --rm app ./vendor/bin/phpstan analyse
 
 phpmd:
-	docker-compose exec app ./vendor/bin/phpmd src/ ansi phpmd.xml
+	docker-compose run --rm app ./vendor/bin/phpmd src/ ansi phpmd.xml
 
 phpmetrics:
-	docker-compose exec app ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
+	docker-compose run --rm app ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
