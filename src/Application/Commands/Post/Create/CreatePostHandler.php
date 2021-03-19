@@ -85,7 +85,7 @@ final class CreatePostHandler
 
     private function getPostTagCollection(CreatePostCommand $command): PostTagCollection
     {
-        return new PostTagCollection(array_map(static fn ($tag) => new PostTag($tag), $command->tags));
+        return new PostTagCollection(array_map(static fn (string $tag) => new PostTag($tag), $command->tags));
     }
 
     private function getPostMetaData(CreatePostCommand $command): PostMetaData
@@ -103,9 +103,9 @@ final class CreatePostHandler
     private function getPostDate(CreatePostCommand $command): PostDate
     {
         return new PostDate(
-            $command->dateCreate ? new DateTimeImmutable($command->dateCreate) : new DateTimeImmutable(),
-            $command->dateUpdate ? new DateTimeImmutable($command->dateUpdate) : $command->dateUpdate,
-            $command->datePublish ? new DateTimeImmutable($command->datePublish) : $command->datePublish
+            $command->dateCreate === null ? new DateTimeImmutable() : new DateTimeImmutable($command->dateCreate),
+            $command->dateUpdate === null ? $command->dateUpdate : new DateTimeImmutable($command->dateUpdate),
+            $command->datePublish === null ? $command->datePublish : new DateTimeImmutable($command->datePublish)
         );
     }
 

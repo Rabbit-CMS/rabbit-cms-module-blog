@@ -9,15 +9,16 @@ use InvalidArgumentException;
 final class PostTagCollection
 {
     /**
-     * @var array<PostTag>|null
+     * @var array<PostTag>
      */
-    private ?array $collection;
+    private array $collection = [];
 
     /**
-     * @param array<PostTag>|null $collection
+     * @param array<PostTag> $collection
      */
-    public function __construct(?array $collection = null)
+    public function __construct(array $collection = [])
     {
+        /** @psalm-suppress DocblockTypeContradiction */
         foreach ($collection as $item) {
             if (! ($item instanceof PostTag)) {
                 throw new InvalidArgumentException(
@@ -30,7 +31,7 @@ final class PostTagCollection
     }
 
     /**
-     * @return array<PostTag>
+     * @return array<string>
      */
     public function getArray(): array
     {
