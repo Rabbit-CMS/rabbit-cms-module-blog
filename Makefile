@@ -17,10 +17,10 @@ composer-update:
 	docker-compose run --rm app composer u --no-interaction
 
 test:
-	docker-compose run --rm app ./vendor/bin/phpunit -v
+	docker-compose run --rm app ./vendor/bin/phpunit -v --no-interaction
 
 phplint:
-	docker-compose run --rm app ./vendor/bin/phplint -v
+	docker-compose run --rm app ./vendor/bin/phplint -v --no-interaction
 
 phpcs:
 	docker-compose run --rm app ./vendor/bin/phpcs -v
@@ -28,7 +28,7 @@ phpcbf:
 	docker-compose run --rm app ./vendor/bin/phpcbf -v
 
 phpinsight:
-	docker-compose run --rm app ./vendor/bin/phpinsights -v
+	docker-compose run --rm app ./vendor/bin/phpinsights -v --no-interaction
 
 psalm:
 	docker-compose run --rm app ./vendor/bin/psalm
