@@ -1,4 +1,4 @@
-FROM php
+FROM php:7.4
 
 RUN apt update && apt install -y \
     nano \

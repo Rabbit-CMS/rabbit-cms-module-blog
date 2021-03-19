@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
-class PostTag
+final class PostTag
 {
     private string $value;
 

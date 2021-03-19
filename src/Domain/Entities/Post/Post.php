@@ -13,37 +13,13 @@ final class Post implements AggregateRootInterface
 {
     use EventTrait;
 
-    /**
-     * @var PostId
-     */
     private PostId $id;
-    /**
-     * @var PostSlug
-     */
     private PostSlug $slug;
-    /**
-     * @var Author
-     */
     private Author $author;
-    /**
-     * @var PostContent
-     */
     private PostContent $content;
-    /**
-     * @var PostTagCollection
-     */
     private PostTagCollection $tagCollection;
-    /**
-     * @var PostMetaData
-     */
     private PostMetaData $meta;
-    /**
-     * @var PostDate
-     */
     private PostDate $date;
-    /**
-     * @var PostStatus
-     */
     private PostStatus $status;
 
     private function __construct(
@@ -91,65 +67,41 @@ final class Post implements AggregateRootInterface
         return $post;
     }
 
-    /**
-     * @return PostId
-     */
     public function getId(): PostId
     {
         return $this->id;
     }
 
-    /**
-     * @return PostSlug
-     */
     public function getSlug(): PostSlug
     {
         return $this->slug;
     }
 
-    /**
-     * @return Author
-     */
     public function getAuthor(): Author
     {
         return $this->author;
     }
 
-    /**
-     * @return PostContent
-     */
     public function getContent(): PostContent
     {
         return $this->content;
     }
 
-    /**
-     * @return PostTagCollection
-     */
     public function getTagCollection(): PostTagCollection
     {
         return $this->tagCollection;
     }
 
-    /**
-     * @return PostMetaData
-     */
     public function getMeta(): PostMetaData
     {
         return $this->meta;
     }
 
-    /**
-     * @return PostDate
-     */
     public function getDate(): PostDate
     {
         return $this->date;
     }
 
-    /**
-     * @return PostStatus
-     */
     public function getStatus(): PostStatus
     {
         return $this->status;

@@ -14,10 +14,6 @@ final class PostDate
     private ?DateTimeInterface $publish;
 
     /**
-     * PostDate constructor.
-     * @param DateTimeInterface $create
-     * @param DateTimeInterface|null $update
-     * @param DateTimeInterface|null $publish
      * @throws Exception
      */
     public function __construct(
@@ -30,25 +26,16 @@ final class PostDate
         $this->publish = $publish;
     }
 
-    /**
-     * @return DateTimeInterface
-     */
     public function getCreate(): DateTimeInterface
     {
         return $this->create;
     }
 
-    /**
-     * @return ?DateTimeInterface
-     */
     public function getUpdate(): ?DateTimeInterface
     {
         return $this->update;
     }
 
-    /**
-     * @return ?DateTimeInterface
-     */
     public function getPublish(): ?DateTimeInterface
     {
         return $this->publish;

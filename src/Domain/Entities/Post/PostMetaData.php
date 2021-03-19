@@ -17,25 +17,16 @@ final class PostMetaData
         $this->keywords = $keywords;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @return string|null
-     */
     public function getKeywords(): ?string
     {
         return $this->keywords;

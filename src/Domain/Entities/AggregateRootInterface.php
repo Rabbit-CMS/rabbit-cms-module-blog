@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities;
 
+use Paulmixxx\Blog\Domain\Events\EventInterface;
+
 interface AggregateRootInterface
 {
-    public function releaseEvents();
+    /**
+     * @return array<EventInterface>
+     */
+    public function releaseEvents(): array;
 }

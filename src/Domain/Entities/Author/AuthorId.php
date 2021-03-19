@@ -6,5 +6,4 @@ namespace Paulmixxx\Blog\Domain\Entities\Author;
 
 final class AuthorId
 {
-
 }

@@ -9,14 +9,17 @@ use InvalidArgumentException;
 final class PostTagCollection
 {
     /**
-     * @var PostTag[]
+     * @var array<PostTag>|null
      */
     private ?array $collection;
 
+    /**
+     * @param array<PostTag>|null $collection
+     */
     public function __construct(?array $collection = null)
     {
         foreach ($collection as $item) {
-            if (!($item instanceof PostTag)) {
+            if (! ($item instanceof PostTag)) {
                 throw new InvalidArgumentException(
                     sprintf('A collection can only contain a %s.', PostTag::class)
                 );
@@ -27,7 +30,7 @@ final class PostTagCollection
     }
 
     /**
-     * @return array
+     * @return array<PostTag>
      */
     public function getArray(): array
     {

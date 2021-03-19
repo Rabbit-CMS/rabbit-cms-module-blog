@@ -20,25 +20,16 @@ final class PostContent
         $this->detailText = $detailText;
     }
 
-    /**
-     * @return string
-     */
     public function getHeader(): string
     {
         return $this->header;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPreviewText(): ?string
     {
         return $this->previewText;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDetailText(): ?string
     {
         return $this->detailText;

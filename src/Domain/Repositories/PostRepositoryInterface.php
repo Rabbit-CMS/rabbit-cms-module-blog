@@ -10,20 +10,11 @@ use RuntimeException;
 
 interface PostRepositoryInterface
 {
-    /**
-     * @return Post|null
-     */
     public function find(): ?Post;
 
-    /**
-     * @param PostSlug $slug
-     * @return Post|null
-     */
     public function findBySlug(PostSlug $slug): ?Post;
 
     /**
-     * @param Post $post
-     * @return bool
      * @throws RuntimeException
      */
     public function add(Post $post): bool;
