@@ -31,13 +31,14 @@ class CreatePostHandlerTest extends TestCase
      */
     public function testSuccess(): void
     {
-        $command = new CreatePostCommand();
-        $command->authorId = '111';
-        $command->header = 'New post';
+        $command = new CreatePostCommand(
+            '4c87589e-0dd5-4326-b009-f23089cd6df0',
+            'new-post',
+            'New post',
+            ['IT', 'DDD']
+        );
         $command->previewText = null;
         $command->detailText = null;
-        $command->slug = 'new-post';
-        $command->tags = ['IT', 'DDD'];
         $command->metaTitle = null;
         $command->metaDescription = null;
         $command->metaKeywords = null;
@@ -46,6 +47,7 @@ class CreatePostHandlerTest extends TestCase
         $command->datePublish = null;
         $command->publish = false;
 
+        /** @phpstan-ignore-next-line */
         $this->dispatcher->subscribeTo(AfterPostCreatedEvent::class, function (AfterPostCreatedEvent $event) use ($command) {
             $post = $event->getEntity();
             $this->assertEquals($command->authorId, $post->getAuthor()->getValue());
@@ -58,14 +60,17 @@ class CreatePostHandlerTest extends TestCase
             $this->assertEquals($command->metaDescription, $post->getMeta()->getDescription());
             $this->assertEquals($command->metaKeywords, $post->getMeta()->getKeywords());
             $this->assertEquals(
+                /** @phpstan-ignore-next-line */
                 $command->dateCreate ? new DateTimeImmutable($command->dateCreate) : new DateTimeImmutable(),
                 $post->getDate()->getCreate()
             );
             $this->assertEquals(
+                /** @phpstan-ignore-next-line */
                 $command->dateUpdate ? new DateTimeImmutable($command->dateUpdate) : $command->dateUpdate,
                 $post->getDate()->getUpdate()
             );
             $this->assertEquals(
+                /** @phpstan-ignore-next-line */
                 $command->datePublish ? new DateTimeImmutable($command->datePublish) : $command->datePublish,
                 $post->getDate()->getPublish()
             );

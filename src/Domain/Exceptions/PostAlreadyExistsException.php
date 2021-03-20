@@ -8,5 +8,6 @@ use DomainException;
 
 final class PostAlreadyExistsException extends DomainException
 {
+    /** @phpstan-ignore-next-line */
     protected $message = 'Post already exist.';
 }
