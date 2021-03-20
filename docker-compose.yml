@@ -6,6 +6,7 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+      - ./.docker/app/conf.d/custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ~/.ssh:/root/.ssh
       - ~/.composer:/root/.composer
     tty: true
