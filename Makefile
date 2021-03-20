@@ -12,9 +12,9 @@ fix-permission:
 	docker-compose run --rm app chown -R 1000:1000 .
 
 composer-install:
-	docker-compose run --rm app composer i --no-interaction
+	docker-compose run --rm app composer i --dev --no-interaction
 composer-update:
-	docker-compose run --rm app composer u --no-interaction
+	docker-compose run --rm app composer u --dev --no-interaction
 
 test:
 	docker-compose run --rm app ./vendor/bin/phpunit -v --no-interaction

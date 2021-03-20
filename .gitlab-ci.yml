@@ -6,5 +6,12 @@ stages:
 test:
     stage: test
     script:
-        - composer i --dev
-        - make check
+        - composer i --dev --no-interaction
+        - ./vendor/bin/phplint -v --no-interaction
+        - ./vendor/bin/phpcs -v
+        - ./vendor/bin/phpinsights -v --no-interaction
+        - ./vendor/bin/psalm
+        - ./vendor/bin/phpstan analyse
+        - ./vendor/bin/phpmd src/ ansi phpmd.xml
+        - ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
+        - ./vendor/bin/phpunit -v --no-interaction
