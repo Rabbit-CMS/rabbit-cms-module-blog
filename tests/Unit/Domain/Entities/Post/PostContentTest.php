@@ -99,7 +99,7 @@ class PostContentTest extends TestCase
         $postContent = new PostContent(
             'Title'
         );
-        $postContent->changeHeader($this->generateRandomString(255+1));
+        $postContent->changeHeader($this->generateRandomString(255 + 1));
     }
 
     /**
@@ -123,7 +123,7 @@ class PostContentTest extends TestCase
         $postContent = new PostContent(
             'Title'
         );
-        $postContent->changePreviewText($this->generateRandomString(65535+1));
+        $postContent->changePreviewText($this->generateRandomString(65535 + 1));
     }
 
     /**
@@ -147,7 +147,7 @@ class PostContentTest extends TestCase
         $postContent = new PostContent(
             'Title'
         );
-        $postContent->changeDetailText($this->generateRandomString(65535+1));
+        $postContent->changeDetailText($this->generateRandomString(65535 + 1));
     }
 
     public function dataProvider(): array
@@ -162,9 +162,9 @@ class PostContentTest extends TestCase
     {
         return [
             ['', '', ''],
-            [$this->generateRandomString(255+1), null, null],
-            ['title', $this->generateRandomString(65535+1), null],
-            ['title', null, $this->generateRandomString(65535+1)],
+            [$this->generateRandomString(255 + 1), null, null],
+            ['title', $this->generateRandomString(65535 + 1), null],
+            ['title', null, $this->generateRandomString(65535 + 1)],
         ];
     }
 
