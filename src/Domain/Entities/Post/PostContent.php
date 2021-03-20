@@ -19,7 +19,9 @@ final class PostContent
     ) {
         Assert::stringNotEmpty($header);
         Assert::maxLength($header, 255);
+        /** @psalm-suppress PossiblyNullArgument */
         Assert::maxLength($previewText, 65535);
+        /** @psalm-suppress PossiblyNullArgument */
         Assert::maxLength($detailText, 65535);
 
         $this->header = $header;
@@ -54,6 +56,7 @@ final class PostContent
 
     public function changePreviewText(?string $previewText): self
     {
+        /** @psalm-suppress PossiblyNullArgument */
         Assert::maxLength($previewText, 65535);
 
         $this->previewText = $previewText;
@@ -63,6 +66,7 @@ final class PostContent
 
     public function changeDetailText(?string $detailText): self
     {
+        /** @psalm-suppress PossiblyNullArgument */
         Assert::maxLength($detailText, 65535);
 
         $this->detailText = $detailText;
