@@ -1,0 +1,9 @@
+image: registry.gitlab.com/vasilinenko/rabbit-cms-module-blog
+
+stages:
+    - test
+
+test:
+    stage: test
+    script:
+        - make check
