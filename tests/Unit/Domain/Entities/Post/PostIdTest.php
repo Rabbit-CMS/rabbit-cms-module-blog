@@ -1,8 +1,9 @@
 <?php
 
-namespace Paulmixxx\Blog\Domain\Entities\Post;
+namespace Tests\Unit\Blog\Domain\Entities\Post;
 
 use InvalidArgumentException;
+use Paulmixxx\Blog\Domain\Entities\Post\PostId;
 use PHPUnit\Framework\TestCase;
 
 class PostIdTest extends TestCase
