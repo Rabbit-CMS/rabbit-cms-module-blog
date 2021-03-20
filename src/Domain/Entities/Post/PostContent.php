@@ -12,6 +12,9 @@ final class PostContent
     private ?string $previewText;
     private ?string $detailText;
 
+    /**
+     * @SuppressWarnings(PHPMD)
+     */
     public function __construct(
         string $header,
         ?string $previewText = null,
@@ -20,9 +23,9 @@ final class PostContent
         Assert::stringNotEmpty($header);
         Assert::maxLength($header, 255);
         /** @psalm-suppress PossiblyNullArgument */
-        Assert::maxLength($previewText, 65535);
+        Assert::maxLength($previewText, 65535); // @phpstan-ignore-line
         /** @psalm-suppress PossiblyNullArgument */
-        Assert::maxLength($detailText, 65535);
+        Assert::maxLength($detailText, 65535); // @phpstan-ignore-line
 
         $this->header = $header;
         $this->previewText = $previewText;
@@ -44,6 +47,9 @@ final class PostContent
         return $this->detailText;
     }
 
+    /**
+     * @SuppressWarnings(PHPMD)
+     */
     public function changeHeader(string $header): self
     {
         Assert::stringNotEmpty($header);
@@ -54,20 +60,26 @@ final class PostContent
         return $this;
     }
 
+    /**
+     * @SuppressWarnings(PHPMD)
+     */
     public function changePreviewText(?string $previewText): self
     {
         /** @psalm-suppress PossiblyNullArgument */
-        Assert::maxLength($previewText, 65535);
+        Assert::maxLength($previewText, 65535); // @phpstan-ignore-line
 
         $this->previewText = $previewText;
 
         return $this;
     }
 
+    /**
+     * @SuppressWarnings(PHPMD)
+     */
     public function changeDetailText(?string $detailText): self
     {
         /** @psalm-suppress PossiblyNullArgument */
-        Assert::maxLength($detailText, 65535);
+        Assert::maxLength($detailText, 65535); // @phpstan-ignore-line
 
         $this->detailText = $detailText;
 
