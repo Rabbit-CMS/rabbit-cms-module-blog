@@ -20,6 +20,9 @@ use Paulmixxx\Blog\Domain\Exceptions\PostAlreadyExistsException;
 use Paulmixxx\Blog\Domain\Repositories\PostRepositoryInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
+/**
+ * @SuppressWarnings(PHPMD)
+ */
 final class CreatePostHandler
 {
     private PostRepositoryInterface $postRepository;
@@ -38,7 +41,7 @@ final class CreatePostHandler
      */
     public function handle(CreatePostCommand $command): void
     {
-        $id = $this->getPostId();
+        $uuid = $this->getPostId();
         $slug = $this->getSlug($command);
         $author = $this->getAuthor($command);
         $content = $this->getPostContent($command);
@@ -51,7 +54,7 @@ final class CreatePostHandler
             throw new PostAlreadyExistsException();
         }
 
-        $post = Post::create($id, $slug, $author, $content, $tagCollection, $meta, $date, $status);
+        $post = Post::create($uuid, $slug, $author, $content, $tagCollection, $meta, $date, $status);
         $this->postRepository->add($post);
 
         foreach ($post->releaseEvents() as $event) {

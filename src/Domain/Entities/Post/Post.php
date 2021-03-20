@@ -13,7 +13,7 @@ final class Post implements AggregateRootInterface
 {
     use EventTrait;
 
-    private PostId $id;
+    private PostId $uuid;
     private PostSlug $slug;
     private Author $author;
     private PostContent $content;
@@ -23,7 +23,7 @@ final class Post implements AggregateRootInterface
     private PostStatus $status;
 
     private function __construct(
-        PostId $id,
+        PostId $uuid,
         PostSlug $slug,
         Author $author,
         PostContent $content,
@@ -32,7 +32,7 @@ final class Post implements AggregateRootInterface
         PostDate $date,
         PostStatus $status
     ) {
-        $this->id = $id;
+        $this->uuid = $uuid;
         $this->slug = $slug;
         $this->author = $author;
         $this->content = $content;
@@ -43,7 +43,7 @@ final class Post implements AggregateRootInterface
     }
 
     public static function create(
-        PostId $id,
+        PostId $uuid,
         PostSlug $slug,
         Author $author,
         PostContent $content,
@@ -53,7 +53,7 @@ final class Post implements AggregateRootInterface
         PostStatus $status
     ): self {
         $post = new self(
-            $id,
+            $uuid,
             $slug,
             $author,
             $content,
@@ -69,7 +69,7 @@ final class Post implements AggregateRootInterface
 
     public function getId(): PostId
     {
-        return $this->id;
+        return $this->uuid;
     }
 
     public function getSlug(): PostSlug
