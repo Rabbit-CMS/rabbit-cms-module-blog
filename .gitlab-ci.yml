@@ -15,3 +15,4 @@ test:
         - ./vendor/bin/phpmd src/ ansi phpmd.xml
         - ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
         - ./vendor/bin/phpunit -v --no-interaction
+        - ./vendor/bin/infection --threads=4 --show-mutations --only-covered
