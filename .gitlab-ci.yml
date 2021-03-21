@@ -8,7 +8,6 @@ test:
     script:
         - cp .docker/app/conf.d/custom.ini /usr/local/etc/php/conf.d/custom.ini
         - composer i --dev --no-interaction
-        - ./vendor/bin/infection --threads=4 --show-mutations --only-covered
         - ./vendor/bin/phplint -v --no-interaction
         - ./vendor/bin/phpcs -v
         - ./vendor/bin/phpinsights -v --no-interaction
@@ -17,4 +16,5 @@ test:
         - ./vendor/bin/phpmd src/ ansi phpmd.xml
         - ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
         - ./vendor/bin/phpunit -v --no-interaction
+        - ./vendor/bin/infection --threads=4 --only-covered
 
