@@ -1,6 +1,4 @@
-install: down up composer-install fix-permission
-check: phplint phpcs phpinsight psalm phpstan phpmd test fix-permission
-restart: down up
+check: composer-install fix-permission phplint phpcs phpinsight psalm phpstan phpmd test infection
 
 up:
 	docker-compose up -d
@@ -41,3 +39,6 @@ phpmd:
 
 phpmetrics:
 	docker-compose run --rm app ./vendor/bin/phpmetrics --report-html=var/phpmetrics ./src/
+
+infection:
+	docker-compose run --rm app ./vendor/bin/infection --threads=4 --show-mutations --only-covered
