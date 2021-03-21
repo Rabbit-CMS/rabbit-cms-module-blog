@@ -6,6 +6,7 @@ stages:
 test:
     stage: test
     script:
+        - php -i
         - composer i --dev --no-interaction
         - ./vendor/bin/phplint -v --no-interaction
         - ./vendor/bin/phpcs -v
