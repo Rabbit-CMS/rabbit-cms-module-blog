@@ -1,4 +1,4 @@
-check: composer-install fix-permission phplint phpcs phpinsight psalm phpstan phpmd test infection
+check: composer-install phplint phpcs phpinsight psalm phpstan phpmd test infection phpmetrics fix-permission
 
 up:
 	docker-compose up -d
