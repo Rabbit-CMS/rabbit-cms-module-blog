@@ -40,4 +40,16 @@ final class PostDate
     {
         return $this->publish;
     }
+
+    public function changeUpdate(?DateTimeInterface $dateTime): self
+    {
+        $this->update = $dateTime;
+        return $this;
+    }
+
+    public function changePublish(?DateTimeInterface $dateTime): self
+    {
+        $this->publish = $dateTime;
+        return $this;
+    }
 }
