@@ -6,11 +6,11 @@ namespace Paulmixxx\Blog\Domain\Entities\Post;
 
 final class PostMetaData
 {
-    private ?string $title = null;
-    private ?string $description = null;
-    private ?string $keywords = null;
+    private ?string $title;
+    private ?string $description;
+    private ?string $keywords;
 
-    public function __construct(?string $title, ?string $description, ?string $keywords)
+    public function __construct(?string $title = null, ?string $description = null, ?string $keywords = null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -30,5 +30,23 @@ final class PostMetaData
     public function getKeywords(): ?string
     {
         return $this->keywords;
+    }
+
+    public function changeTitle(?string $title): self
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function changeDescription(?string $description): self
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function changeKeywords(?string $keywords): self
+    {
+        $this->keywords = $keywords;
+        return $this;
     }
 }
