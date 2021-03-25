@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Blog\Domain\Entities\Post;
+namespace Tests\Unit\Domain\Entities\Post;
 
 use Paulmixxx\Blog\Domain\Entities\Post\PostMetaData;
 use PHPUnit\Framework\TestCase;

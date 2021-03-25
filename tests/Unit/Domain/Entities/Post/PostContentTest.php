@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Blog\Domain\Entities\Post;
+namespace Tests\Unit\Domain\Entities\Post;
 
 use InvalidArgumentException;
 use Paulmixxx\Blog\Domain\Entities\Post\PostContent;
