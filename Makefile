@@ -1,5 +1,7 @@
 check: composer-install phplint phpcs phpinsight psalm phpstan phpmd test infection phpmetrics fix-permission
 
+app: exec
+
 up:
 	docker-compose up -d
 down:
