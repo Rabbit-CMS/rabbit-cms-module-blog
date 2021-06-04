@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
-use InvalidArgumentException;
-
 final class PostTagCollection
 {
     /**
@@ -18,16 +16,14 @@ final class PostTagCollection
      */
     public function __construct(array $collection = [])
     {
-        /** @psalm-suppress DocblockTypeContradiction */
         foreach ($collection as $item) {
-            if (! ($item instanceof PostTag)) {
-                throw new InvalidArgumentException(
-                    sprintf('A collection can only contain a %s.', PostTag::class)
-                );
-            }
+            $this->add($item);
         }
+    }
 
-        $this->collection = $collection;
+    public function add(PostTag $postTag): void
+    {
+        $this->collection[] = $postTag;
     }
 
     /**

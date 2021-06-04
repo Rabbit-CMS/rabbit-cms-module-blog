@@ -10,6 +10,9 @@ final class PostTag
 {
     private string $value;
 
+    /**
+     * @SuppressWarnings(PHPMD.StaticAccess)
+     */
     public function __construct(string $value)
     {
         Assert::lengthBetween($value, 1, 255);
