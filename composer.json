@@ -22,7 +22,7 @@
         "fzaninotto/faker": "^1.9",
         "infection/infection": "^0.18.2",
         "nunomaduro/phpinsights": "^1.14",
-        "overtrue/phplint": "^2.1",
+        "overtrue/phplint": "^3.0",
         "phpmd/phpmd": "^2.9",
         "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^0.12.50",
