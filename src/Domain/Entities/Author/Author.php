@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Author;
 
-final class Author
+use Paulmixxx\Blog\Domain\Entities\ValueInterface;
+
+final class Author implements ValueInterface
 {
     private string $value;
 

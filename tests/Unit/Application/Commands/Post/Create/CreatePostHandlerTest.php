@@ -55,7 +55,7 @@ class CreatePostHandlerTest extends TestCase
             $this->assertEquals($command->previewText, $post->getContent()->getPreviewText());
             $this->assertEquals($command->detailText, $post->getContent()->getDetailText());
             $this->assertEquals($command->slug, $post->getSlug()->getValue());
-            $this->assertEquals($command->tags, $post->getTagCollection()->getArray());
+            $this->assertEquals($command->tags, $post->getTagCollection()->toArray());
             $this->assertEquals($command->metaTitle, $post->getMeta()->getTitle());
             $this->assertEquals($command->metaDescription, $post->getMeta()->getDescription());
             $this->assertEquals($command->metaKeywords, $post->getMeta()->getKeywords());

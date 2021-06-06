@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
-final class PostSlug
+use Paulmixxx\Blog\Domain\Entities\ValueInterface;
+
+final class PostSlug implements ValueInterface
 {
     private string $value;
 

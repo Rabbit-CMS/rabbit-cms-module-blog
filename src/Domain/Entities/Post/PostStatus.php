@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
-final class PostStatus
+use Paulmixxx\Blog\Domain\Entities\ValueInterface;
+
+final class PostStatus implements ValueInterface
 {
     private const DRAFT = false;
     private const PUBLISH = true;

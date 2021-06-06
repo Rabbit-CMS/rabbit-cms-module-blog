@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
+use Paulmixxx\Blog\Domain\Entities\ValueInterface;
 use Ramsey\Uuid\Uuid;
 use Webmozart\Assert\Assert;
 
-final class PostId
+final class PostId implements ValueInterface
 {
     private string $value;
 
