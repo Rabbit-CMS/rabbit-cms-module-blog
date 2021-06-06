@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Paulmixxx\Blog\Domain\Entities\Post;
 
+use Paulmixxx\Blog\Domain\Entities\ValueInterface;
 use Webmozart\Assert\Assert;
 
-final class PostTag
+final class PostTag implements ValueInterface
 {
     private string $value;
 
